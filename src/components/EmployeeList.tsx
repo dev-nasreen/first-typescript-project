@@ -10,7 +10,7 @@ interface IContact{
 const EmployeeList = () => {
     const [contact, setContact] = useState<IContact>({} as IContact)
     const [contactList, setContactList] = useState<IContact[]>([])
-    console.log('Contact', contact);
+    //console.log('Contact', contact);
 const onClick = () =>{
     setContactList([...contactList, contact ]);
     setContact({} as IContact)
@@ -18,11 +18,7 @@ const onClick = () =>{
 const onChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
     setContact({...contact, [e.target.name]: e.target.value})
 }
-    const user ={
-        name:"Nasreen",
-        email:"nas@gmail.com",
-        address: "34, East Madabari"
-    }
+   
     return (
         <div className=" container">
             <div className="row ">
@@ -54,7 +50,7 @@ const onChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
             <div className="container">
                 <div className="row">
                 {
-                    contactList.map((cDetail)=><Employee key={cDetail.name} user={cDetail}/>)
+                    contactList.map((cDetail, i)=><Employee key={i} user={cDetail}/>)
                 }
                 </div>
             </div>
